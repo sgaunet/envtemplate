@@ -1,0 +1,34 @@
+# https://taskfile.dev
+version: '3'
+vars:
+  BINFILE: envtemplate
+  IMAGE: sgaunet/envtemplate
+
+tasks:
+  default:
+    cmds:
+      - CGO_ENABLED=0 go build .
+      - upx -q {{.BINFILE}}
+    # silent: true
+
+  image:
+    deps:
+      - default
+    cmds:
+      - docker build . -t {{ .IMAGE }}:latest
+      - docker push       {{ .IMAGE }}:latest
+
+  # tests:
+  #   dir: tests
+  #   cmds:
+  #     - venom run testsuite.yml --output-dir="log" --stop-on-failure
+  #     - venom run TS-bigfile.yml --output-dir="log" --stop-on-failure
+
+  snapshot:
+    cmds:
+      - GITLAB_TOKEN="" goreleaser --rm-dist --snapshot
+    
+  release:
+    cmds:
+      - GITLAB_TOKEN="" goreleaser --rm-dist
+    

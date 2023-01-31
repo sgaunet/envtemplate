@@ -1,0 +1,1 @@
+Hello {{ .USER }}! {{ if .HOME }}Your home dir is {{ .HOME }}.{{ else }}You don't appear to have a home dir set.{{ end }}
