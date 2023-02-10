@@ -18,11 +18,10 @@ tasks:
       - docker build . -t {{ .IMAGE }}:latest
       - docker push       {{ .IMAGE }}:latest
 
-  # tests:
-  #   dir: tests
-  #   cmds:
-  #     - venom run testsuite.yml --output-dir="log" --stop-on-failure
-  #     - venom run TS-bigfile.yml --output-dir="log" --stop-on-failure
+  tests:
+    dir: test
+    cmds:
+      - venom run ts.yml --output-dir="log" --stop-on-failure
 
   snapshot:
     cmds:

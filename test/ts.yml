@@ -1,0 +1,34 @@
+name: Exec testsuite
+
+testcases:
+- name: test input1.txt
+  steps:
+  - type: exec
+    script: |
+      cd {{.venom.testsuite.workdir}}/..
+      go run . -i test/input1.txt > /tmp/1
+      echo "Hello ${USER}! Your home dir is ${HOME}." > /tmp/2
+      diff -q /tmp/1 /tmp/2
+    assertions:
+    - result.code ShouldEqual 0
+
+- name: test input2.txt
+  steps:
+  - type: exec
+    script: |
+      export MULTILINE="ligne1
+      ligne2
+      ligne3"
+      cd {{.venom.testsuite.workdir}}/..
+      go run . -i test/input2.txt > /tmp/1
+      diff /tmp/1 test/input2.expected
+    assertions:
+    - result.code ShouldEqual 0
+
+- name: delete temporary files
+  steps:
+  - type: exec
+    script: |
+      rm /tmp/1 /tmp/2 
+    assertions:
+    - result.code ShouldEqual 0

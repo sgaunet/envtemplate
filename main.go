@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 	"text/template"
 )
@@ -32,6 +33,7 @@ func WriteTemplateToStream(tplSource string, environ map[string]string, outStrea
 	tpl.Funcs(template.FuncMap{
 		"split":  TplSplitStr,
 		"exists": TplCheckExists,
+		"indent": Indent,
 	})
 	tpl.Option("missingkey=error")
 	_, err := tpl.Parse(tplSource)
@@ -42,6 +44,12 @@ func WriteTemplateToStream(tplSource string, environ map[string]string, outStrea
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func Indent(n int, text string) string {
+	startOfLine := regexp.MustCompile(`(?m)^`)
+	indentation := strings.Repeat(" ", n)
+	return startOfLine.ReplaceAllLiteralString(text, indentation)
 }
 
 func TplSplitStr(args ...interface{}) ([]string, error) {
