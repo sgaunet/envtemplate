@@ -39,6 +39,21 @@ For example, a simple template might look like:
 ```
 Hello {{ .USER }}! {{ if .HOME }}Your home dir is {{ .HOME }}.{{ else }}You don't appear to have a home dir set.{{ end }}
 ```
+
+There is an indent function:
+
+```
+$ cat test/input2.txt 
+{{ indent 4 .MULTILINE }}
+$ export MULTILINE="ligne1
+ligne2
+ligne3"
+$ go run . -i test/input2.txt 
+    ligne1
+    ligne2
+    ligne3
+```
+
 ## Install
 
 ### from source
