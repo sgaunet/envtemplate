@@ -57,6 +57,10 @@ $ go run . -i test/input2.txt
     ligne3
 ```
 
+## Demo
+
+![demo](doc/demo.gif)
+
 ## Install
 
 ### from source
