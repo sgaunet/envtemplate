@@ -1,3 +1,6 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/sgaunet/envtemplate)](https://goreportcard.com/report/github.com/sgaunet/envtemplate)
+
+
 [Forked from https://github.com/orls/envtemplate](https://github.com/orls/envtemplate)
 
 Why forking the project ?
