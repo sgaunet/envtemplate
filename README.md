@@ -1,5 +1,10 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/sgaunet/envtemplate)](https://goreportcard.com/report/github.com/sgaunet/envtemplate)
-
+[![GitHub release](https://img.shields.io/github/release/sgaunet/envtemplate.svg)](https://github.com/sgaunet/envtemplate/releases/latest)
+![GitHub Downloads](https://img.shields.io/github/downloads/sgaunet/envtemplate/total)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/214a2cb2c610e725f513/test_coverage)](https://codeclimate.com/github/sgaunet/envtemplate/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/214a2cb2c610e725f513/maintainability)](https://codeclimate.com/github/sgaunet/envtemplate/maintainability)
+[![GoDoc](https://godoc.org/github.com/sgaunet/envtemplate?status.svg)](https://godoc.org/github.com/sgaunet/envtemplate)
+[![License](https://img.shields.io/github/license/sgaunet/envtemplate.svg)](LICENSE)
 
 [Forked from https://github.com/orls/envtemplate](https://github.com/orls/envtemplate)
 
