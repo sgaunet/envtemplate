@@ -68,6 +68,13 @@ $ go run . -i test/input2.txt
 
 ## Install
 
+### homebrew
+
+```bash
+brew tap sgaunet/homebrew-tools
+brew install sgaunet/tools/envtemplate
+```
+
 ### from source
 
 Assuming a working go installation, just  `git clone`, `cd` and `go build`. A binary named `envtemplate` should appear.
