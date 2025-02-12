@@ -14,6 +14,7 @@ Why forking the project ?
 * Author does not seem to be active
 * Want binary for multiple architectures and a docker image to copy the binary from in multi stage build
 
+**This project** is now **archived**, please consider using [gomplate](https://github.com/hairyhenderson/gomplate) instead. It's more feature rich and actively maintained.
 
 # envtemplate
 
