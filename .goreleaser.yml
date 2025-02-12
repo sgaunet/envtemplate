@@ -1,5 +1,5 @@
 ---
-# project_name: envtemplate
+version: 2
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -31,12 +31,10 @@ archives:
       {{- .Os }}_
       {{- .Arch }}
       {{- if .Arm }}v{{ .Arm }}{{ end }}
-    format: binary
+    formats: ["binary"]
+
 checksum:
   name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ .Tag }}"
-
 
 dockers:
   # https://goreleaser.com/customization/docker/
@@ -121,9 +119,6 @@ docker_manifests:
       - sgaunet/{{ .ProjectName }}:latest-armv6
       - sgaunet/{{ .ProjectName }}:latest-armv7
 
-source:
-  rlcp: true
-
 changelog:
   sort: asc
   filters:
@@ -133,13 +128,10 @@ changelog:
 
 brews:
   - homepage: 'https://github.com/sgaunet/homebrew-tools'
-    folder: Formula
-    license: "MIT"
-    install: |-
-      bin.install "{{.ProjectName}}"
+    directory: Formula
     commit_author:
       name: sgaunet
-      email: sgaunet@gmail.com
-    tap:
+      email: 1552102+sgaunet@users.noreply.github.com
+    repository:
       owner: sgaunet
       name: homebrew-tools
